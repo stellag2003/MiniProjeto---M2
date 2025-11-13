@@ -2,7 +2,7 @@
 ## ✅ MiniProjeto M2 — API To-Do List
 
 Este projeto foi desenvolvido como parte do módulo 2 do curso, com o objetivo de praticar a criação de uma **API To-Do List** utilizando **Node.js**, **Express** e **Sequelize**.
-A aplicação permite o cadastro, listagem, atualização e exclusão de tarefas, com integração a um banco de dados relacional (**SQLite** em desenvolvimento e **MySQL** em produção).
+A aplicação permite o cadastro, listagem, atualização e exclusão de tarefas, com integração a um banco de dados relacional (**SQLite**).
 Os testes da API foram realizados utilizando o **Insomnia**.
 
 ---
@@ -13,8 +13,6 @@ Os testes da API foram realizados utilizando o **Insomnia**.
 * **Express**
 * **Sequelize (ORM)**
 * **SQLite** (ambiente de desenvolvimento)
-* **MySQL** (produção/teste)
-* **Dotenv** (para variáveis de ambiente)
 * **Insomnia** (para testes das rotas da API)
 
 ---
