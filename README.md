@@ -65,21 +65,13 @@ MiniProjeto-M2/
    npm install
    ```
 
-4. **Configure o arquivo `.env`:**
-
-   ```bash
-   DB_DIALECT=sqlite
-   DB_STORAGE=src/database/database.sqlite
-   PORT=3000
-   ```
-
-5. **Execute as migrations:**
+4. **Execute as migrations:**
 
    ```bash
    npx sequelize db:migrate
    ```
 
-6. **Inicie o servidor:**
+5. **Inicie o servidor:**
 
    ```bash
    npm start
