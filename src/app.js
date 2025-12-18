@@ -1,8 +1,11 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
-const rota = require('./routes');
+const rota = require("./routes");
+const manipuladorDeErros = require("./middlewares/manipuladorDeErros");
 
 rota(app);
 
-module.exports = app;
+app.use(manipuladorDeErros);
 
+module.exports = app;

@@ -20,7 +20,7 @@ class TarefaController {
       const tarefaResultado = await dataBase.Tarefa.findAll();
       res.status(200).json(tarefaResultado);
     } catch (error) {
-      next(erro);
+      next(error);
     }
   };
 
@@ -98,8 +98,10 @@ class TarefaController {
 
       await dataBase.Tarefa.destroy({ where: { id: id } });
 
-      res.status(200).send({ message: "Tarefa removida com sucesso!" });
-    } catch (erro) {}
+      res.status(204).send({ message: "Tarefa removida com sucesso!" });
+    } catch (erro) {
+      next(erro);
+    }
   };
 }
 
