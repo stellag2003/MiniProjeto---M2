@@ -65,24 +65,20 @@ class TarefaController {
       const { id } = req.params;
       const { status } = req.body;
 
-      if (status === undefined) {
-        return res
-          .status(400)
-          .json({ mensagem: "O campo 'status' é obrigatório." });
-      }
+      // 1. Busca a tarefa primeiro
+      const tarefa = await dataBase.Tarefa.findByPk(id);
 
-      const [linhasAfetadas] = await dataBase.Tarefa.update(
-        { status },
-        { where: { id } }
-      );
-
-      if (linhasAfetadas === 0) {
+      if (!tarefa) {
         return res.status(404).json({ mensagem: "Tarefa não encontrada." });
       }
 
-      return res
-        .status(200)
-        .json({ mensagem: "Status atualizado com sucesso!" });
+      // 2. Atualiza o campo (Cuidado: use "concluída" com acento se for o caso)
+      tarefa.status = status;
+
+      // 3. Salva no banco
+      await tarefa.save();
+
+      return res.status(200).json({ mensagem: "Status atualizado!", tarefa });
     } catch (erro) {
       next(erro);
     }
